@@ -1,0 +1,142 @@
+# Central Project Configuration: XAI-RiceGuard
+# Framework: A Lesion-Grounded Explainable and Uncertainty-Aware Deep Learning Framework for Robust Rice Leaf Blast and Brown Spot Detection
+
+project:
+  name: "XAI-RiceGuard"
+  title: "A Lesion-Grounded Explainable and Uncertainty-Aware Deep Learning Framework for Robust Rice Leaf Blast and Brown Spot Detection"
+  version: "0.1.0-phase0"
+  target_venue: "IEEE Transactions / IEEE Conference Publication"
+  current_phase: 0  # Phase 0: Foundation & Protocol Setup (Strictly no training)
+
+reproducibility:
+  default_seed: 42
+  deterministic_cudnn: true
+  benchmark_cudnn: false
+  multi_seed_evaluation_seeds: [42, 123, 456, 789, 1024] # Placeholders for multi-run robustness
+  python_hash_seed: 42
+
+# Immutable Dataset Roles & Research Separation (CRITICAL IEEE INTEGRITY REQUIREMENT)
+datasets:
+  primary:
+    name: "RiceLeafDiseaseBD"
+    role: "PRIMARY_DEVELOPMENT_DATASET"
+    official_source: "https://data.mendeley.com/datasets/86s4jzj2m4/2"
+    doi: "10.17632/86s4jzj2m4.2"
+    allowed_usages:
+      - "model_training"
+      - "validation"
+      - "internal_test"
+      - "lesion_supervision_via_bounding_boxes"
+    expected_classes:
+      - "Healthy"
+      - "Blast"
+      - "Brown spot"
+      - "Leaf smut"
+      - "Rice Tungro"
+      - "Sheath blight"
+
+  external_sethy:
+    name: "Sethy et al. Rice Leaf Disease Image Samples"
+    role: "EXTERNAL_DATASET"
+    official_source: "https://data.mendeley.com/datasets/fwcj7stb8r/2"
+    doi: "10.17632/fwcj7stb8r.2"
+    expected_image_count: 5932
+    allowed_usages:
+      - "cross_dataset_generalization_test"
+      - "domain_geographic_shift_evaluation"
+    prohibited_usages:
+      - "model_training"
+      - "hyperparameter_tuning"
+      - "model_selection"
+      - "validation"
+    expected_classes:
+      - "Bacterialblight"
+      - "Blast"
+      - "Brownspot"
+      - "Tungro"
+
+  external_bd5:
+    name: "RiceLeafDisease-BD5"
+    role: "EXTERNAL_FIELD_DATASET"
+    official_source: "https://data.mendeley.com/datasets/sjkptpgv79/2"
+    doi: "10.17632/sjkptpgv79.2"
+    expected_image_count: 2545
+    allowed_usages:
+      - "independent_field_domain_evaluation"
+      - "real_world_robustness_test"
+    prohibited_usages:
+      - "model_training"
+      - "hyperparameter_tuning"
+      - "model_selection"
+      - "validation"
+    semantic_isolation_rules:
+      - "Narrow Brown Spot is distinct and MUST NOT be merged with Brown Spot"
+    expected_classes:
+      - "Blast"
+      - "Narrow_Brown_Spot"
+      - "Normal_Leaf"
+      - "Sheath_Blight"
+      - "Tungro"
+
+  riceseg_masks:
+    name: "RiceSeg-5932"
+    role: "XAI_GROUND_TRUTH"
+    official_source: "https://data.mendeley.com/datasets/92jc6w6mcy/1"
+    doi: "10.17632/92jc6w6mcy.1"
+    expected_mask_count: 5932
+    allowed_usages:
+      - "quantitative_xai_lesion_grounding_evaluation"
+      - "explanation_iou_dice_pointing_game_evaluation"
+    prohibited_usages:
+      - "image_training_dataset"
+      - "direct_mask_supervision_without_audit"
+    expected_classes:
+      - "Bacterialblight"
+      - "Blast"
+      - "Brownspot"
+      - "Tungro"
+
+experiment_tracking:
+  naming_format: "XR_P{phase}_{task}_{model}_{seed}_{timestamp}"
+  phase0_id: "XR_P0_FOUNDATION"
+  save_git_hash: true
+  save_environment_snapshot: true
+  save_dataset_manifest_hash: true
+
+# Checkpointing Policy (Google Colab Free Tier Resilience)
+checkpointing:
+  save_to_drive: true
+  drive_checkpoint_dir: "/content/drive/MyDrive/XAI-RiceGuard/checkpoints"
+  save_frequency_epochs: 1
+  keep_best_k: 3
+  checkpoint_metadata_fields:
+    - "experiment_id"
+    - "phase"
+    - "epoch"
+    - "model_state_dict"
+    - "optimizer_state_dict"
+    - "scheduler_state_dict"
+    - "best_metric_val"
+    - "config_snapshot"
+    - "random_seed"
+    - "git_commit_hash"
+    - "device_info"
+    - "timestamp"
+
+# PLACEHOLDERS FOR FUTURE PHASES (Strictly NOT executed in Phase 0)
+future_phase_placeholders:
+  phase1_dataset_curation:
+    planned_split_ratio: [0.70, 0.15, 0.15]
+    stratification: true
+    leakage_prevention: "split_before_augmentation_and_track_source_ids"
+  phase2_model_architectures:
+    backbones: ["EfficientNet-V2-S", "ConvNeXt-Tiny", "Swin-Transformer-Tiny", "ResNet-50"]
+    loss_function: "FocalLoss_or_CrossEntropyWithSmoothing"
+  phase3_xai_methods:
+    attribution_methods: ["Grad-CAM", "Grad-CAM++", "Score-CAM", "Integrated Gradients", "SHAP"]
+    lesion_metrics: ["Lesion-IoU", "Lesion-Dice", "PointingGame-Accuracy", "Energy-Inside-Lesion"]
+  phase4_uncertainty_calibration:
+    methods: ["Temperature Scaling", "Ensemble", "Monte Carlo Dropout", "Conformal Prediction"]
+    decision_policy: "ACCEPT / ABSTAIN with Selective Risk Control"
+  phase5_robustness_suite:
+    corruptions: ["Gaussian Noise", "Defocus Blur", "Brightness/Contrast", "Illumination Shift", "JPEG Compression"]

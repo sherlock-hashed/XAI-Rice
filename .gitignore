@@ -1,0 +1,83 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# PyTorch / Deep Learning Checkpoints & Large Models
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+*.ckpt
+*.h5
+checkpoints/*.pt
+checkpoints/*.pth
+
+# Datasets (NEVER commit raw or extracted datasets)
+Rice Leaf Disease Image Samples/
+RiceLeafDisease-BD5 A Field-Collected Five-Class I/
+RiceLeafDiseaseBD A Field-Based Annotated Smartpho/
+RiceSeg-5932 Complete Pixel-Level Segmentation Mas/
+datasets/
+raw_data/
+data/
+
+# IDE & Editor Specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Secrets, Credentials, Tokens
+credentials.json
+client_secrets.json
+*.pem
+*.key
+token.pickle
+.gdrive_token
+
+# Temporary / Scratch files
+scratch/
+tmp/
+temp/
+*.log
+*.tmp

@@ -1,0 +1,68 @@
+# Centralized Paths Configuration for XAI-RiceGuard
+# Compatible with both Google Colab (Google Drive Mount) and Local Development
+
+# Environment Selection: 'auto', 'colab', or 'local'
+# When set to 'auto', runtime detects if running inside Google Colab.
+environment_mode: "auto"
+
+# Google Colab Paths (Authoritative Execution Environment)
+colab:
+  # Base mount point for Google Drive in Colab
+  drive_mount_point: "/content/drive"
+  # Project root directory within Google Drive (configurable)
+  project_root: "/content/drive/MyDrive/XAI-RiceGuard"
+  
+  # Dataset roots inside Google Drive (referenced directly without copying)
+  # Update these paths if your Drive folder hierarchy is organized differently
+  dataset_roots:
+    primary_dataset: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceLeafDiseaseBD"
+    sethy_external: "/content/drive/MyDrive/XAI-RiceGuard/datasets/Rice Leaf Disease Image Samples"
+    bd5_external: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceLeafDisease-BD5"
+    riceseg_ground_truth: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceSeg-5932"
+
+  # Standard Artifact and Logging Subdirectories
+  artifacts:
+    manifests: "/content/drive/MyDrive/XAI-RiceGuard/manifests"
+    reports: "/content/drive/MyDrive/XAI-RiceGuard/reports"
+    checkpoints: "/content/drive/MyDrive/XAI-RiceGuard/checkpoints"
+    experiments: "/content/drive/MyDrive/XAI-RiceGuard/experiments"
+    logs: "/content/drive/MyDrive/XAI-RiceGuard/logs"
+    figures: "/content/drive/MyDrive/XAI-RiceGuard/figures"
+    tables: "/content/drive/MyDrive/XAI-RiceGuard/tables"
+
+# Local Workspace Paths (Development, Version Control & Lightweight Testing)
+local:
+  project_root: "."
+  dataset_roots:
+    primary_dataset: "./RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD"
+    sethy_external: "./Rice Leaf Disease Image Samples/Rice Leaf Disease Image Samples/Rice Leaf Disease Images/Rice Leaf Disease Images"
+    bd5_external: "./RiceLeafDisease-BD5 A Field-Collected Five-Class I/RiceLeafDisease-BD5 A Field-Collected Five-Class I/RiceLeafDisease-BD5/RiceLeafBD"
+    riceseg_ground_truth: "./RiceSeg-5932 Complete Pixel-Level Segmentation Mas/RiceSeg-5932 Complete Pixel-Level Segmentation Mas/Rice_Leaf_Disease_Segmentation_Masks/mask-vesrion1"
+
+  artifacts:
+    manifests: "./manifests"
+    reports: "./reports"
+    checkpoints: "./checkpoints"
+    experiments: "./experiments"
+    logs: "./logs"
+    figures: "./figures"
+    tables: "./tables"
+
+# Supported image and mask file extensions
+supported_extensions:
+  images:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".bmp"
+    - ".webp"
+  annotations:
+    - ".txt"
+    - ".xlsx"
+    - ".pdf"
+    - ".xml"
+    - ".json"
+  masks:
+    - ".png"
+    - ".jpg"
+    - ".jpeg"

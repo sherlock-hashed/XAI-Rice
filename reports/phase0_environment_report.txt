@@ -1,0 +1,26 @@
+======================================================================
+XAI-RiceGuard: Phase 0 Environment Snapshot
+======================================================================
+Timestamp (UTC): 2026-09-08T23:04:37.563145+00:00
+Execution Environment: Local / VS Code
+Operating System: Windows (Windows-11-10.0.26200-SP0)
+Architecture: AMD64 / Processor: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+Python Version: 3.14.3
+Git Commit Hash: Not available (Not a git repo or git not in PATH)
+----------------------------------------------------------------------
+Hardware & Accelerator Status:
+CUDA Available: NO
+Note: Running on CPU / Integrated Graphics. (Expected for local dev / unassigned Colab free tier).
+----------------------------------------------------------------------
+Core Package Versions:
+  - torch             : Not installed
+  - torchvision       : Not installed
+  - numpy             : 2.4.2
+  - pandas            : 2.3.3
+  - pillow            : 12.1.0
+  - opencv-python     : Not installed
+  - scikit-learn      : 1.8.0
+  - matplotlib        : 3.10.8
+  - pyyaml            : 6.0.3
+  - openpyxl          : Not installed
+======================================================================
