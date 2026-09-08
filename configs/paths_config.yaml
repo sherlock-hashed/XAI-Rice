@@ -9,26 +9,25 @@ environment_mode: "auto"
 colab:
   # Base mount point for Google Drive in Colab
   drive_mount_point: "/content/drive"
-  # Project root directory within Google Drive (configurable)
-  project_root: "/content/drive/MyDrive/XAI-RiceGuard"
+  # Project root directory within Google Drive
+  project_root: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard"
   
-  # Dataset roots inside Google Drive (referenced directly without copying)
-  # Update these paths if your Drive folder hierarchy is organized differently
+  # Dataset roots inside Google Drive (matching your exact Drive folder hierarchy)
   dataset_roots:
-    primary_dataset: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceLeafDiseaseBD"
-    sethy_external: "/content/drive/MyDrive/XAI-RiceGuard/datasets/Rice Leaf Disease Image Samples"
-    bd5_external: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceLeafDisease-BD5"
-    riceseg_ground_truth: "/content/drive/MyDrive/XAI-RiceGuard/datasets/RiceSeg-5932"
+    primary_dataset: "/content/drive/MyDrive/BTech Final Year Project/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD"
+    sethy_external: "/content/drive/MyDrive/BTech Final Year Project/Rice Leaf Disease Image Samples/Rice Leaf Disease Image Samples/Rice Leaf Disease Images/Rice Leaf Disease Images"
+    bd5_external: "/content/drive/MyDrive/BTech Final Year Project/RiceLeafDisease-BD5 A Field-Collected Five-Class I/RiceLeafDisease-BD5 A Field-Collected Five-Class I/RiceLeafDisease-BD5/RiceLeafBD"
+    riceseg_ground_truth: "/content/drive/MyDrive/BTech Final Year Project/RiceSeg-5932 Complete Pixel-Level Segmentation Mas/RiceSeg-5932 Complete Pixel-Level Segmentation Mas/Rice_Leaf_Disease_Segmentation_Masks/mask-vesrion1"
 
   # Standard Artifact and Logging Subdirectories
   artifacts:
-    manifests: "/content/drive/MyDrive/XAI-RiceGuard/manifests"
-    reports: "/content/drive/MyDrive/XAI-RiceGuard/reports"
-    checkpoints: "/content/drive/MyDrive/XAI-RiceGuard/checkpoints"
-    experiments: "/content/drive/MyDrive/XAI-RiceGuard/experiments"
-    logs: "/content/drive/MyDrive/XAI-RiceGuard/logs"
-    figures: "/content/drive/MyDrive/XAI-RiceGuard/figures"
-    tables: "/content/drive/MyDrive/XAI-RiceGuard/tables"
+    manifests: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/manifests"
+    reports: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/reports"
+    checkpoints: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/checkpoints"
+    experiments: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/experiments"
+    logs: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/logs"
+    figures: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/figures"
+    tables: "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/tables"
 
 # Local Workspace Paths (Development, Version Control & Lightweight Testing)
 local:
