@@ -94,6 +94,12 @@ def parse_args():
         help="Path to frozen validation manifest"
     )
     parser.add_argument(
+        "--data-dir",
+        type=str,
+        default=None,
+        help="Optional root directory of primary images on disk/Drive"
+    )
+    parser.add_argument(
         "--output-base-dir",
         type=str,
         default="experiments/phase2",
@@ -115,9 +121,11 @@ def build_config(model_name: str, args) -> dict:
         "data": {
             "train_manifest": args.train_manifest,
             "validation_manifest": args.val_manifest,
+            "data_dir": args.data_dir,
             "image_size": 224,
             "num_classes": 6
         },
+
         "model": {
             "name": model_name,
             "pretrained": True

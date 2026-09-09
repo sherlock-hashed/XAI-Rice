@@ -82,6 +82,7 @@ def run_experiment(
     image_size = config.get("data", {}).get("image_size", 224)
     batch_size = config.get("training", {}).get("batch_size", 32)
     aug_cfg = config.get("augmentation", {"enabled": True})
+    data_dir = base_dir or config.get("data", {}).get("data_dir", None)
     
     train_loader, val_loader = create_dataloaders(
         train_manifest=train_manifest,
@@ -89,9 +90,10 @@ def run_experiment(
         image_size=image_size,
         batch_size=batch_size,
         augmentation_cfg=aug_cfg,
-        base_dir=base_dir,
+        base_dir=data_dir,
         seed=seed
     )
+
     logger.info(f"Loaded DataLoaders: {len(train_loader.dataset)} Train images | {len(val_loader.dataset)} Validation images")
     
     # 6. Instantiate Model

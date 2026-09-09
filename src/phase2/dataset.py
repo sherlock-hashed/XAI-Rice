@@ -116,10 +116,37 @@ class RiceLeafDataset(_BaseDataset):
     def _resolve_image_path(self, path: str) -> str:
         if os.path.exists(path):
             return path
+            
+        candidate_roots = []
         if self.base_dir:
-            joined = os.path.join(self.base_dir, path)
-            if os.path.exists(joined):
-                return joined
+            candidate_roots.append(self.base_dir)
+            
+        # Try resolving from centralized config
+        try:
+            from src.phase0.config import resolve_paths
+            paths = resolve_paths()
+            if "dataset_roots" in paths and "primary_dataset" in paths["dataset_roots"]:
+                candidate_roots.append(paths["dataset_roots"]["primary_dataset"])
+        except Exception:
+            pass
+            
+        # Common Google Drive and local project dataset roots
+        candidate_roots.extend([
+            "/content/drive/MyDrive/BTech Final Year Project/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD",
+            "/content/drive/MyDrive/BTech Final Year Project/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD",
+            "/content/drive/MyDrive/BTech Final Year Project/XAI-RiceGuard/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD",
+            "RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD",
+            "RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD",
+            "RiceLeafDiseaseBD",
+            os.path.join(os.getcwd(), "RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD A Field-Based Annotated Smartpho/RiceLeafDiseaseBD/RiceLeafDiseaseBD")
+        ])
+        
+        for root in candidate_roots:
+            if root and os.path.exists(root):
+                cand = os.path.join(root, path)
+                if os.path.exists(cand):
+                    return cand
+                    
         return path
 
     def __getitem__(self, idx: int) -> Dict[str, Any]:
@@ -128,6 +155,7 @@ class RiceLeafDataset(_BaseDataset):
         label_str = row[self.class_col]
         label_idx = CLASS_TO_IDX[label_str]
         sample_id = row.get("sample_id", f"{self.role}_{idx}")
+
 
         
         try:
