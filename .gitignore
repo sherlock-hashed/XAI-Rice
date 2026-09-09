@@ -47,8 +47,10 @@ venv.bak/
 *.tflite
 *.ckpt
 *.h5
-checkpoints/*.pt
-checkpoints/*.pth
+checkpoints/
+experiments/**/checkpoint/
+experiments/**/*.pt
+
 
 # Datasets (NEVER commit raw or extracted datasets)
 Rice Leaf Disease Image Samples/
