@@ -1,0 +1,24 @@
+{
+  "total_samples": 17963,
+  "num_classes": 6,
+  "class_counts": {
+    "Healthy": 1575,
+    "Blast": 2652,
+    "Brown spot": 4356,
+    "Leaf smut": 1448,
+    "Rice Tungro": 4488,
+    "Sheath blight": 3444
+  },
+  "class_percentages": {
+    "Healthy": 8.768,
+    "Blast": 14.7637,
+    "Brown spot": 24.2498,
+    "Leaf smut": 8.061,
+    "Rice Tungro": 24.9847,
+    "Sheath blight": 19.1727
+  },
+  "largest_class": "Rice Tungro",
+  "smallest_class": "Leaf smut",
+  "imbalance_ratio": 3.1,
+  "all_expected_classes_present": true
+}

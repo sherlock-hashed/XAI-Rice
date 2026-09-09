@@ -1,0 +1,31 @@
+sample_id,dataset,class_name,relative_path,figure_role
+PRIMARY_012013,RiceLeafDiseaseBD,Healthy,Original images/Healthy/Healthy_1282.jpg,primary_representative
+PRIMARY_012767,RiceLeafDiseaseBD,Healthy,Original images/Healthy/Healthy_543.jpg,primary_representative
+PRIMARY_008528,RiceLeafDiseaseBD,Blast,Original images/Blast/blast_13.jpg,primary_representative
+PRIMARY_000730,RiceLeafDiseaseBD,Blast,Annotated images ( visual with labels)/Blast/visuals/blast_462.jpg,primary_representative
+PRIMARY_001969,RiceLeafDiseaseBD,Brown spot,Annotated images ( visual with labels)/Brown spot/visuals/brown spot_1578.jpg,primary_representative
+PRIMARY_009974,RiceLeafDiseaseBD,Brown spot,Original images/Brown spot/brown spot_1407.jpg,primary_representative
+PRIMARY_013487,RiceLeafDiseaseBD,Leaf smut,Original images/Leaf smut/Leaf smut_292.jpg,primary_representative
+PRIMARY_003843,RiceLeafDiseaseBD,Leaf smut,Annotated images ( visual with labels)/Leaf smut/visuals/Leaf smut_404.jpg,primary_representative
+PRIMARY_006036,RiceLeafDiseaseBD,Rice Tungro,Annotated images ( visual with labels)/Rice Tungro/visuals/Rice Tungro_606.jpg,primary_representative
+PRIMARY_015396,RiceLeafDiseaseBD,Rice Tungro,Original images/Rice Tungro/Rice Tungro_238.jpg,primary_representative
+PRIMARY_017098,RiceLeafDiseaseBD,Sheath blight,Original images/Sheath blight/Sheath blight_22.jpg,primary_representative
+PRIMARY_017444,RiceLeafDiseaseBD,Sheath blight,Original images/Sheath blight/Sheath blight_531.jpg,primary_representative
+SETHY_001433,Sethy_5932,Bacterialblight,Bacterialblight/BACTERIALBLIGHT_114.jpg,sethy_riceseg_pair
+SETHY_000095,Sethy_5932,Bacterialblight,Bacterialblight/BACTERAILBLIGHT3_096.jpg,sethy_riceseg_pair
+SETHY_002645,Sethy_5932,Blast,Blast/BLAST7_102.jpg,sethy_riceseg_pair
+SETHY_001698,Sethy_5932,Blast,Blast/BLAST1_115.JPG,sethy_riceseg_pair
+SETHY_004595,Sethy_5932,Brownspot,Brownspot/brownspot_rotated_072.jpg,sethy_riceseg_pair
+SETHY_003376,Sethy_5932,Brownspot,Brownspot/BROWNSPOT2_153.jpg,sethy_riceseg_pair
+SETHY_004893,Sethy_5932,Tungro,Tungro/TUNGRO1_270.JPG,sethy_riceseg_pair
+SETHY_005275,Sethy_5932,Tungro,Tungro/TUNGRO3_098.JPG,sethy_riceseg_pair
+BD5_000613,RiceLeafDisease_BD5,Blast,Blast/IMG_20241103_123228.jpg,bd5_field_sample
+BD5_000105,RiceLeafDisease_BD5,Blast,Blast/IMG20241103121827_01.jpg,bd5_field_sample
+BD5_001172,RiceLeafDisease_BD5,Narrow_Brown_Spot,Narrow_Brown_Spot/IMG_20241031_135128.jpg,bd5_field_sample
+BD5_001093,RiceLeafDisease_BD5,Narrow_Brown_Spot,Narrow_Brown_Spot/IMG_20241031_132444.jpg,bd5_field_sample
+BD5_001992,RiceLeafDisease_BD5,Normal_Leaf,Normal_Leaf/IMG_20241031_141250.jpg,bd5_field_sample
+BD5_001285,RiceLeafDisease_BD5,Normal_Leaf,Normal_Leaf/IMG20241103130346.jpg,bd5_field_sample
+BD5_002650,RiceLeafDisease_BD5,Sheath_Blight,Sheath_Blight/PXL_20241029_115947625.jpg,bd5_field_sample
+BD5_002118,RiceLeafDisease_BD5,Sheath_Blight,Sheath_Blight/IMG_20241029_121340.jpg,bd5_field_sample
+BD5_003050,RiceLeafDisease_BD5,Tungro,Tungro/IMG_20241103_111831.jpg,bd5_field_sample
+BD5_002665,RiceLeafDisease_BD5,Tungro,Tungro/IMG20241103105507.jpg,bd5_field_sample

@@ -1,0 +1,119 @@
+{
+  "project": "XAI-RiceGuard",
+  "phase": 1,
+  "timestamp_utc": "2026-09-09T05:10:05.780131+00:00",
+  "git_commit": "ceddff4deebcc8cac836939f2b5618b71e87c770",
+  "random_seed": 42,
+  "environment": {
+    "is_colab": false,
+    "os": "Windows",
+    "python": "3.14.3",
+    "pytorch": "Not installed"
+  },
+  "split_summary": {
+    "seed": 42,
+    "total_primary_samples": 17963,
+    "splits": {
+      "train": {
+        "sample_count": 12568,
+        "target_count": 12574,
+        "actual_percentage": 69.97,
+        "target_percentage": 70.0,
+        "class_counts": {
+          "Healthy": 1101,
+          "Blast": 1856,
+          "Brown spot": 3048,
+          "Leaf smut": 1013,
+          "Rice Tungro": 3141,
+          "Sheath blight": 2409
+        },
+        "class_percentages": {
+          "Healthy": 8.76,
+          "Blast": 14.77,
+          "Brown spot": 24.25,
+          "Leaf smut": 8.06,
+          "Rice Tungro": 24.99,
+          "Sheath blight": 19.17
+        }
+      },
+      "validation": {
+        "sample_count": 1798,
+        "target_count": 1796,
+        "actual_percentage": 10.01,
+        "target_percentage": 10.0,
+        "class_counts": {
+          "Healthy": 158,
+          "Blast": 265,
+          "Brown spot": 436,
+          "Leaf smut": 145,
+          "Rice Tungro": 449,
+          "Sheath blight": 345
+        },
+        "class_percentages": {
+          "Healthy": 8.79,
+          "Blast": 14.74,
+          "Brown spot": 24.25,
+          "Leaf smut": 8.06,
+          "Rice Tungro": 24.97,
+          "Sheath blight": 19.19
+        }
+      },
+      "calibration": {
+        "sample_count": 1799,
+        "target_count": 1796,
+        "actual_percentage": 10.02,
+        "target_percentage": 10.0,
+        "class_counts": {
+          "Healthy": 158,
+          "Blast": 266,
+          "Brown spot": 436,
+          "Leaf smut": 145,
+          "Rice Tungro": 449,
+          "Sheath blight": 345
+        },
+        "class_percentages": {
+          "Healthy": 8.78,
+          "Blast": 14.79,
+          "Brown spot": 24.24,
+          "Leaf smut": 8.06,
+          "Rice Tungro": 24.96,
+          "Sheath blight": 19.18
+        }
+      },
+      "internal_test": {
+        "sample_count": 1798,
+        "target_count": 1796,
+        "actual_percentage": 10.01,
+        "target_percentage": 10.0,
+        "class_counts": {
+          "Healthy": 158,
+          "Blast": 265,
+          "Brown spot": 436,
+          "Leaf smut": 145,
+          "Rice Tungro": 449,
+          "Sheath blight": 345
+        },
+        "class_percentages": {
+          "Healthy": 8.79,
+          "Blast": 14.74,
+          "Brown spot": 24.25,
+          "Leaf smut": 8.06,
+          "Rice Tungro": 24.97,
+          "Sheath blight": 19.19
+        }
+      }
+    }
+  },
+  "validation_passed": true,
+  "manifest_checksums": {
+    "primary_all_splits.csv": "f71f5b6fcca523441c9e8eed54fc16f85be1b53d23a4db6ef391c1ebd07ecd8e",
+    "primary_train.csv": "e8f7281917806aa8f02b74fc99864a2bafe7fc877f8892127f70b228c1f8dda7",
+    "primary_validation.csv": "8c7dff4e323d49eb108b0dc5272dd4fdc7fa45e3819c2bb30276696b09766ba1",
+    "primary_calibration.csv": "81154b79dc3f11e3b5402c5b9f310a68b1420b6deab589eb50a3312c6624f990",
+    "primary_internal_test.csv": "46fbac17a068995072ac6604855bae86c197f43a5cfe0ceed6e385cd1bb7390f",
+    "duplicate_groups.csv": "1d8e88679b6fed4455ab8e801e6f0d31adc5c0beb9afe87e7b90a8939796461d",
+    "sethy_external.csv": "0f1133c0e4f7a58857496fe4c3cc8ae066eda3e609b4fdf41a42b10529a842de",
+    "bd5_external.csv": "8cd9e9ba931e844c7d005d13d2fcd85fc4dd10034a6fbb5a1daab6a5f96a8289",
+    "riceseg_ground_truth.csv": "cc308c8184bb35236c48a53d9deafb354581f3ff5e4d612fdafecdc7215918e7"
+  }
+}
