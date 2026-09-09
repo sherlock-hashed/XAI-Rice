@@ -25,14 +25,16 @@ def create_dataloaders(
     pin_memory: Optional[bool] = None,
     augmentation_cfg: Optional[Dict[str, Any]] = None,
     base_dir: Optional[str] = None,
-    seed: int = 42
+    seed: int = 42,
+    max_train_samples: Optional[int] = None,
+    max_val_samples: Optional[int] = None
 ) -> Tuple[Any, Any]:
     """
     Builds training and validation DataLoaders with deterministic seeding and environment adaptation.
     """
     try:
         import torch
-        from torch.utils.data import DataLoader
+        from torch.utils.data import DataLoader, Subset
     except ImportError:
         raise ImportError("PyTorch is required to build DataLoaders.")
         
@@ -53,6 +55,11 @@ def create_dataloaders(
         base_dir=base_dir
     )
     
+    if max_train_samples and max_train_samples < len(train_dataset):
+        train_dataset = Subset(train_dataset, range(max_train_samples))
+    if max_val_samples and max_val_samples < len(val_dataset):
+        val_dataset = Subset(val_dataset, range(max_val_samples))
+    
     # Environment adaptations
     is_cuda = torch.cuda.is_available()
     if pin_memory is None:
@@ -63,7 +70,6 @@ def create_dataloaders(
     generator = torch.Generator()
     generator.manual_seed(seed)
     
-    # Check if persistent_workers is supported (num_workers > 0)
     persistent_workers = (num_workers > 0)
     
     train_loader = DataLoader(
@@ -73,6 +79,7 @@ def create_dataloaders(
         num_workers=num_workers,
         pin_memory=pin_memory,
         persistent_workers=persistent_workers,
+        prefetch_factor=2 if persistent_workers else None,
         worker_init_fn=seed_worker,
         generator=generator
     )
@@ -84,7 +91,9 @@ def create_dataloaders(
         num_workers=num_workers,
         pin_memory=pin_memory,
         persistent_workers=persistent_workers,
+        prefetch_factor=2 if persistent_workers else None,
         worker_init_fn=seed_worker
     )
     
     return train_loader, val_loader
+

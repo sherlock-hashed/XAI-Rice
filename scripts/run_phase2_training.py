@@ -110,7 +110,9 @@ def parse_args():
 
 def build_config(model_name: str, args) -> dict:
     epochs = 1 if args.smoke_test else args.epochs
-    batch_size = 4 if args.smoke_test else args.batch_size
+    batch_size = 8 if args.smoke_test else args.batch_size
+    max_train = 32 if args.smoke_test else None
+    max_val = 16 if args.smoke_test else None
     
     return {
         "experiment": {
@@ -123,8 +125,11 @@ def build_config(model_name: str, args) -> dict:
             "validation_manifest": args.val_manifest,
             "data_dir": args.data_dir,
             "image_size": 224,
-            "num_classes": 6
+            "num_classes": 6,
+            "max_train_samples": max_train,
+            "max_val_samples": max_val
         },
+
 
         "model": {
             "name": model_name,
